@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from scrapper import search_incruit #scrapper.py에 있는 search_incruit를 가져와라
+from scrapper import search_incruit, search_saramin
 
 app = Flask(__name__)
 
@@ -11,7 +11,9 @@ def hello_world():
 def search():
     keyword = request.args.get("keyword")
     print(keyword)
-    jobs = search_incruit(keyword)
+    jobs = []
+    jobs += search_incruit(keyword)
+    jobs += search_saramin(keyword)
     print(jobs)
     return render_template("search.html", jobs=enumerate(jobs))
 

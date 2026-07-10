@@ -8,6 +8,7 @@
         <table>
             <tr>
                 <td>No</td>
+                <td>사이트</td>
                 <td>회사</td>
                 <td>공고제목</td>
                 <td>지역</td>
@@ -16,10 +17,14 @@
             {%for num, job in jobs %} 
             <tr>
                 <td>{{num + 1}}</td>
+                <td>{{job["site"]}}</td>
                 <td>{{job["company"]}}</td>
                 <td>{{job["title"]}}</td>
                 <td>{{job["location"]}}</td>
                 <td>{{job["link"]}}</td>
+                <td>
+                    <a href="{{job['link']}}"target="blank">상세보기</a>
+                </td>
             </tr>
             {% endfor %}
         </table>
